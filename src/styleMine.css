@@ -9,6 +9,7 @@ body {
     font-family: Arial, sans-serif;
     height: 100%;
     width: 100%;
+    background: #000;
 }
 
 .sidebar {
@@ -260,7 +261,61 @@ body {
     }
 }
 
-
-
-
-
+.navbar {
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0rem;
+    align-items: center;
+    background-color: var(--grey);
+    z-index: 1000;
+    /* Other styles as needed */
+  }
+  
+  .cards-container {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    /* Other styles as needed */
+  }
+  
+  .card {
+    width: 150px;
+    background-color: var(--light-grey);
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    height: fit-content;
+    margin: 0rem 0.75rem;
+  }
+  
+  .card-img {
+    width: 100%;
+    border-radius: 0.35rem;
+  }
+  
+  .card-name {
+    margin: 0.25rem 0;
+    color: #fff;
+  }
+  
+  .card-description {
+    margin: 0;
+    font-size: 0.8rem;
+    opacity: 0.5;
+  }
+  
+  .player {
+    width: 100%;
+    height: 80px; /* Adjust as needed */
+    position: fixed;
+    bottom: 0;
+    background-color: var(--black);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  h3{
+    color: #fff;
+  }
