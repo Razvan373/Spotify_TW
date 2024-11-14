@@ -189,6 +189,7 @@ body {
 
 .top-nav .login-btn .sign-up:hover{
     color: white;
+    text-decoration: none;
 }
 
 .top-nav .login-btn .login{
