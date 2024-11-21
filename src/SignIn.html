@@ -28,15 +28,16 @@
     <div class="wrapper">
         <div class="form-box login">
             <h2>Login</h2>
-            <form action="#">
+            <form action="/login" method="POST">
+<!--                action="https://script.google.com/macros/s/AKfycbyHWR0eLManUKIMY_gp4F1ZTTzsoOLkqh1fsF8QOnAVGktO-Oozzo8RYKw-vFszwopC/exec" method="POST"-->
                 <div class="input-box">
                     <span class="icon"><i class="fa-solid fa-envelope"></i></span>
-                    <input type="email" required>
+                    <input type="email" name="email" required> <!-- name="email" required>-->
                     <label>Email</label>
                 </div>
                 <div class="input-box">
                     <span class="icon"><i class="fa-solid fa-lock"></i></span>
-                    <input type="password" required>
+                    <input type="password" name="password" required>
                     <label>Password</label>
                 </div>
                 <div class="remenber-forgot">
@@ -52,15 +53,15 @@
 
         <div class="form-box register">
             <h2>Registration</h2>
-            <form action="#">
+            <form action="/register" method="POST">
                 <div class="input-box">
                     <span class="icon"><i class="fa-solid fa-user"></i></span>
-                    <input type="text" required>
-                    <label>Username</label>
+                    <input name="email" type="text" required>
+                    <label>Email</label>
                 </div>
                 <div class="input-box">
                     <span class="icon"><i class="fa-solid fa-lock"></i></span>
-                    <input type="password" required>
+                    <input name="password" type="password" required>
                     <label>Password</label>
                 </div>
                 <div class="remenber-forgot">
