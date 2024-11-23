@@ -50,7 +50,10 @@ app.post('/register', async (req, res) => {
     // Verifică dacă utilizatorul există deja
     const existingUser = await User.findOne({ email: email });
     if (existingUser) {
-      return res.status(400).send('Email-ul este deja folosit.');
+      return res.status(400).json({
+        success: false,
+        message: 'Email-ul este deja folosit.',
+      });
     }
 
     // Creează și salvează utilizatorul
@@ -65,7 +68,10 @@ app.post('/register', async (req, res) => {
     console.log('Utilizator nou înregistrat:', email);
   } catch (err) {
     console.error(err);
-    res.status(500).send('Eroare la înregistrare.');
+    res.status(500).json({
+      success: false,
+      message: 'Eroare la înregistrare.',
+    });
   }
 });
 
@@ -78,15 +84,12 @@ app.post('/login100', async (req, res) => {
     // Caută utilizatorul în baza de date folosind email-ul din formular
     const user = await User.findOne({ email: email });
 
-    console.log('salut');
-
     // Dacă utilizatorul nu există
     if (!user) {
       return res
         .status(400)
         .json({ success: false, message: 'Utilizatorul nu există.' });
     } else {
-      console.log('salut');
       // Verifică dacă parola este corectă
       if (user.password !== password) {
         console.log('Parola greșită');

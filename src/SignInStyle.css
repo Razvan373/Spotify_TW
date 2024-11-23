@@ -188,3 +188,34 @@ body{
     font-weight: 600;
 }
 .login-register p a:hover
+
+.error-message {
+    font-size: 14px;
+    padding: 10px;
+    border-radius: 5px;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 10px;
+}
+
+/* Stil pentru eroarea "Utilizatorul nu există" */
+.error-message.user-not-found {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Stil pentru eroarea "Parola greșită" */
+.error-message.wrong-password {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Stil pentru eroarea generală de server */
+.error-message.server-error {
+    background-color: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeeba;
+}
