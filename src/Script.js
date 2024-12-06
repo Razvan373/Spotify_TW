@@ -29,8 +29,9 @@ document
     const existingErrors = document.querySelectorAll('.error-message');
     existingErrors.forEach((error) => error.remove());
     // Preiei datele din formular
-    const email = document.querySelector('input[name="email"]').value;
-    const password = document.querySelector('input[name="password"]').value;
+    const form = event.target;
+    const email = form.querySelector('input[name="email"]').value;
+    const password = form.querySelector('input[name="password"]').value;
 
     try {
       // Trimiți datele la server
@@ -74,8 +75,9 @@ document
     const existingErrors = document.querySelectorAll('.error-message');
     existingErrors.forEach((error) => error.remove());
     // Preiei datele din formular
-    const email = document.querySelector('input[name="email"]').value;
-    const password = document.querySelector('input[name="password"]').value;
+    const form = event.target;
+    const email = form.querySelector('input[name="email"]').value;
+    const password = form.querySelector('input[name="password"]').value;
 
     try {
       // Trimiți datele la server
@@ -89,7 +91,7 @@ document
 
       if (response.ok) {
         // Dacă autentificarea reușește, redirecționează utilizatorul
-        window.location.href = '/myPlaylist.html';
+        window.location.href = data.redirectUrl;
       } else {
         // Dacă există o eroare, afișează mesajul în pagină
         const errorDiv = document.createElement('div');

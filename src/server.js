@@ -63,7 +63,15 @@ app.post('/register', async (req, res) => {
     });
 
     await newUser.save();
-    res.redirect('/myPlaylist.html');
+
+    req.session.destroy();
+
+    res.status(201).json({
+      success: true,
+      message: 'Cont creat cu succes!',
+      redirectUrl: '/myPlaylist.html', // URL-ul paginii de redirecționare
+    });
+
     //res.status(201).send('Cont creat cu succes!');
     console.log('Utilizator nou înregistrat:', email);
   } catch (err) {
@@ -92,6 +100,7 @@ app.post('/login100', async (req, res) => {
     } else {
       // Verifică dacă parola este corectă
       if (user.password !== password) {
+        req.session.destroy();
         console.log('Parola greșită');
         return res.status(400).json({
           success: false,
