@@ -188,26 +188,29 @@ body {
     justify-content: space-between;
 }
 
-.main-section .top-nav button{
-    width: 40px; 
-    height: 50px;
-    border-radius: 50%; 
-    background-color: #333; /* Dark background */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* cursor: pointer; */
-    transition: background 0.3s, transform 0.3s;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
-    border: none;
-}
 
-.main-section .top-nav .home-btn button i{
-    color: #bcbaba;
-    font-size: 22px;
+
+.main-section .top-nav .profil{
+    color: #0c0c0c;
+    font-size: 16px;
+    font-weight: 600;
+    background: white;
+    padding: 10px 15px;
+    border-radius: 20px;
     /* margin-right: 20px; */
 }
 
+.main-section .top-nav .profile-btn{
+    color: #73dc93;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+}
+
+.main-section .top-nav .profile-btn a{
+    text-decoration: none;
+    color: #000000;
+}
 .home-btn:hover {
     background-color: #555; /* Slightly lighter background on hover */
     transform: scale(1.05); /* Slightly enlarge the button on hover */
@@ -216,9 +219,9 @@ body {
 .search-bar{
     display: flex;
     align-items: center;
-    background-color: #333; 
-    border-radius: 30px; 
-    padding: 10px 15px; 
+    background-color: #393838;
+    border-radius: 30px;
+    padding: 10px 15px;
     width: 60%; 
     height: 50px; 
     margin: 10px auto; 
@@ -230,21 +233,66 @@ body {
     background-color: transparent; /* Transparent background */
     border: none; /* Remove default border */
     outline: none; /* Remove outline */
-    color: #fff; /* White text */
+    color: #73dc93; /* White text */
     font-size: 14px;
     flex-grow: 1; /* Allows the input to take up remaining space */
     padding:  0 10px;
 }
 
 
-.search-bar button{
-    background: none; /* Remove button background */
-    border: none; /* Remove button border */
+.search-bar button {
+    background: none; /* Elimină fundalul butonului */
+    border: none; /* Elimină bordura butonului */
     cursor: pointer;
-    color: #B3B3B3; /* Icon color */
-    padding: 0 10px;
+    color: #B3B3B3; /* Culoarea iconiței */
     font-size: 18px;
+    padding: 0; /* Elimină padding-ul care poate crea cercul */
+    width: auto; /* Asigură-te că butonul are doar dimensiunea iconiței */
+    height: auto; /* Asigură-te că înălțimea este fixată doar pe iconiță */
 }
+
+/* Stil pentru containerul profil */
+.profil {
+    position: relative;
+    display: inline-block;
+}
+
+/* Stil pentru butonul profil */
+.profile-btn {
+
+
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+
+/* Stil pentru meniul drop-down */
+.dropdown-menu {
+    display: none; /* Ascuns implicit */
+    position: absolute;
+    right: 0; /* Se aliniază la dreapta */
+    background-color: #282828;
+
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 150px;
+    z-index: 100;
+}
+
+/* Linkuri din meniul drop-down */
+.dropdown-menu a {
+    display: block;
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
 
 @media (max-width: 768px) {
     .search-bar {

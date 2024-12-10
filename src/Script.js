@@ -78,13 +78,13 @@ document
     const form = event.target;
     const email = form.querySelector('input[name="email"]').value;
     const password = form.querySelector('input[name="password"]').value;
-
+    const username = form.querySelector('input[name="username"]').value;
     try {
       // Trimiți datele la server
       const response = await fetch('/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ email, password, username }),
       });
 
       const data = await response.json();
@@ -112,3 +112,69 @@ document
       console.error('Eroare la trimiterea datelor:', err);
     }
   });
+
+async function getUserData() {
+  try {
+    const response = await fetch('/api/currentUser', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error(`Eroare: ${response.statusText}`);
+    }
+
+    const data = await response.json();
+    console.loggit('Date  utilizator:', data);
+    return data;
+  } catch (err) {
+    console.error('Eroare la trimiterea datelor:', err);
+  }
+}
+
+document.addEventListener('DOMContentLoaded', async () => {
+  const userData = await getUserData();
+
+  if (userData && userData.success) {
+    const dropdownMenu = document.getElementById('.dropdown-menu');
+
+    dropdownMenu.innerHTML =
+      '<div class="dropdown-item">Username: ${userData.user.username}</div>\n' +
+      '      <div class="dropdown-item">Email: ${userData.user.email}</div>\n' +
+      '      <a href="/" class="dropdown-item">Deconectare</a>';
+  } else {
+    console.error('Nu s-a putut obtine utilizatorul conectat.');
+  }
+});
+
+document.querySelector('.profile-btn').addEventListener('click', async () => {
+  const userData = await getUserData();
+
+  if (userData && userData.success) {
+    alert(`Salut, ${userData.user.username}!`);
+  }
+});
+
+document
+  .getElementById('loginForm')
+  .addEventListener('submit', async function (event) {
+    event.preventDefault();
+    const email = document.querySelector('#emailInput').value;
+    const password = document.querySelector('#passwordInput').value;
+
+    loginUser(email, password).then();
+  });
+
+async function loginUser(email, password) {
+  const response = await fetch('/login100', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ email, password }), // Trimite datele
+  });
+
+  return await response.json();
+}

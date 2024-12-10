@@ -32,9 +32,11 @@ body{
 }
 
 .logo{
-    font-size: 2em;
-    color: white;
-    user-select: none;
+    width: 120px;
+}
+
+.logo img{
+    width: 100%;
 }
 .navigation a{
     position: relative;

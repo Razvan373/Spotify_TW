@@ -32,6 +32,7 @@ mongoose
 const userSchema = new mongoose.Schema({
   email: String,
   password: String,
+  username: String,
 });
 
 const User = mongoose.model('User', userSchema);
@@ -45,8 +46,8 @@ app.get('/', (req, res) => {
 // Ruta pentru a primi datele de login și a le stoca în baza de date
 app.post('/register', async (req, res) => {
   try {
-    const { email, password } = req.body;
-    console.log(email, password);
+    const { email, password, username } = req.body;
+    console.log(email, password, username);
     // Verifică dacă utilizatorul există deja
     const existingUser = await User.findOne({ email: email });
     if (existingUser) {
@@ -60,6 +61,7 @@ app.post('/register', async (req, res) => {
     const newUser = new User({
       email: email,
       password: password, // Ideal, ar trebui să criptezi parola folosind bcrypt
+      username: username,
     });
 
     await newUser.save();
@@ -110,10 +112,12 @@ app.post('/login100', async (req, res) => {
     }
 
     // Dacă autentificarea reușește
-    req.session.email = email;
+    req.session.user = { email: user.email, username: user.username };
     console.log('Autentificare reușită!');
-    console.log(user.email);
-    res.status(200).json({ success: true, message: 'Autentificare reușită!' });
+    res.status(200).json({
+      success: true,
+      data: { email: user.email, username: user.username },
+    });
   } catch (err) {
     console.error(err);
     res.status(500).json({
@@ -123,6 +127,16 @@ app.post('/login100', async (req, res) => {
   }
 });
 
+app.get('/api/currentUser', (req, res) => {
+  if (!req.session.user) {
+    return res.status(401).json({ success: false, message: 'Neautentificat' });
+  }
+
+  res.json({
+    successs: true,
+    user: req.session.user,
+  });
+});
 app.listen(3000, () => {
   console.log('Server started on port 3000!');
 });

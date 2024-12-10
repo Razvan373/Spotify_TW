@@ -14,29 +14,24 @@
 </head>
 <body>
     <header>
-        <h2 class="logo">Logo</h2>
-        <nav class="naigation">
-            <a href="">Home</a>
-            <a href="">About</a>
-            <a href="">Services</a>
-            <a href="">Contact</a>
-            <button class="btnLogin-popup">Login</button>
-        </nav>
+        <h2 class="logo"><img src="poze/logo-new.png" alt=""></h2>
+
 
     </header>
 
     <div class="wrapper">
         <div class="form-box login">
             <h2>Login</h2>
+
             <form action="/login100" method="POST" id="loginForm">
                 <div class="input-box">
                     <span class="icon"><i class="fa-solid fa-envelope"></i></span>
-                    <input type="email" name="email" required>
+                    <input type="email" name="email" required id="emailInput">
                     <label>Email</label>
                 </div>
                 <div class="input-box">
                     <span class="icon"><i class="fa-solid fa-lock"></i></span>
-                    <input type="password" name="password" required>
+                    <input type="password" name="password" required id="passwordInput">
                     <label>Password</label>
                 </div>
                 <div class="remenber-forgot">
@@ -53,7 +48,13 @@
 
         <div class="form-box register">
             <h2>Registration</h2>
+
             <form action="/register" method="POST" id="registerForm">
+                <div class="input-box">
+                    <span class="icon"><i class="fa-solid fa-user"></i></span>
+                    <input name="username" type="text" required>
+                    <label>Username</label>
+                </div>
                 <div class="input-box">
                     <span class="icon"><i class="fa-solid fa-user"></i></span>
                     <input name="email" type="text" required>

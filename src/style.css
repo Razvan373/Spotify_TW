@@ -29,7 +29,7 @@ body {
 }
 
 .sidebar-nav .logo{
-    width: 120px;
+    width: 130%;
 }
 
 .sidebar-nav .logo img{
@@ -426,6 +426,10 @@ body {
         width: 100%;
     }
 }
+.social-links a:hover {
+    color: #1db954; /* Culoarea verde a Spotify */
+    transition: color 0.3s ease-in-out;
+}
 
 @media screen and (min-width: 768px){
     .main-section{
@@ -433,4 +437,29 @@ body {
     }
 }
 
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        position: relative;
+    }
 
+    .main-section {
+        margin-left: 0;
+        min-width: 100%;
+    }
+
+    .sidebar-nav .logo img {
+        width: 50%;
+    }
+
+    .spotify-playlist .card {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 15px;
+    }
+}
+
+.sidebar-nav ul li a:hover {
+    color: #fff;
+    transition: color 0.3s ease-in-out;
+}

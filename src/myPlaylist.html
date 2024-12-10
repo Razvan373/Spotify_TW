@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -91,18 +91,29 @@
         <!-- ..........Main Section.......... -->
         <div class="main-section">
             <div class="top-nav">
-                <div class="home-btn">
-                    <a><button><i class="fa-solid fa-house"></i></button></a>
-                </div>
+
                 <div class="search-bar">
                 
-                    <a><button class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button></a>
+                    <!--<a><button class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button></a><-->
                     <input type="text" placeholder="What do you want to listen to?">
                     <div class="browser-btn">
-                    <a><button class="browser-btn"><i class="fa-solid fa-compass"></i></button></a>
+                        <a><button class="browser-btn"><i class="fa-solid fa-magnifying-glass"></i></button></a>
+                    </div>
+                </div>
+                <div class="profil">
+                    <button class="profile-btn"><i class="fa-solid fa-user"></i> salut</button>
+                    <div class="dropdown-menu">
+                        <div>
+                            <p id="current-username"></p>
+                            <p id="current-email"></p>
+                        </div>
+                        <a href="#">Setări</a>
+                        <a href="#">Istoric</a>
+                        <a href="bau.html">Deconectare</a>
                     </div>
                 </div>
             </div>
+
              <!-- Put your playlists here -->
     <div class="main-content">
       <div class="navbar">
@@ -157,5 +168,7 @@
         </div>
       </div>
     </div>
+        </div>
+    <script src="ScriptDropDown.js" ></script>
     </body>
 </html>
