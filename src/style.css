@@ -29,7 +29,8 @@ body {
 }
 
 .sidebar-nav .logo{
-    width: 130%;
+    width: 100%;
+
 }
 
 .sidebar-nav .logo img{
@@ -172,6 +173,18 @@ body {
     background: transparent;
     border: 0;
     outline: none;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.hamburgerContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
 }
 
 .main-section .top-nav .prev-btn button i{
