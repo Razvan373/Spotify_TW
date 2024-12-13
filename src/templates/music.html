@@ -66,9 +66,14 @@
             </div>
         </div>
     
-        <audio id="audio-player" src="{{audio_url}}"></audio>
     </div>
-
+    <script>
+        const spotifyToken = '{{ spotify_token }}';
+    </script>
+    <script>
+        const trackURI = "{{ track_uri }}";
+    </script>
+    <script src="https://sdk.scdn.co/spotify-player.js"></script>
     <script src="{{ url_for('static', filename='js/app.js')}}" defer></script>
     <!-- connects to webscoket -->
     <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>

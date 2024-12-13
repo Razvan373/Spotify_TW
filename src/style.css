@@ -459,7 +459,4 @@ body {
     }
 }
 
-.sidebar-nav ul li a:hover {
-    color: #fff;
-    transition: color 0.3s ease-in-out;
-}
+
